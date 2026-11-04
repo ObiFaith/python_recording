@@ -6,17 +6,16 @@ def run_length_encoding(data: str) -> str:
         if data[i] == data[i + 1]:
             count += 1
         else:
-            output.extend([data[i], str(count)])
+            output.append(f"{data[i]}{count}")
             count = 1
 
-    output.extend([data[-1], str(count)])
+    output.append(f"{data[-1]}{count}")
     return "".join(output)
 
 def run_length_decoding(data: str):
     output = []
     for i in range(1, len(data), 2):
-        l = [data[i - 1]] * int(data[i])
-        output.extend(l)
+        output.append(data[i - 1] * int(data[i]))
     return "".join(output)
 
 
