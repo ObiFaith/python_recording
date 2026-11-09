@@ -18,22 +18,26 @@ def binary_search(numbers, target):
 
 # bonus
 def recursive_binary_search(numbers, target):
-    def search(left, right, result, comparisons):
+    def search(left, right, prev_mid, left_index, right_index, comparisons):
         if left > right:
-            return result, comparisons
+            return left_index, right_index, comparisons
 
         comparisons += 1
         mid = (left + right) // 2
 
         if numbers[mid] < target:
-            return search(mid+1, right, result, comparisons)
+            return search(mid+1, right, prev_mid, left_index, right_index, comparisons)
 
         if numbers[mid] == target:
-            result = mid
+            left_index = mid
+            right_index = mid
 
-        return search(left, mid-1, result, comparisons)
+            if prev_mid > mid:
+                right_index = mid
 
-    return search(0, len(numbers) - 1, -1, 0)
+        return search(left, mid-1, prev_mid, left_index, right_index, comparisons)
+
+    return search(0, len(numbers) - 1, (len(numbers) - 1) // 2, -1, -1, 0)
 
 # print(binary_search([1, 3, 3, 3, 5, 8], 3))
 # print(binary_search([1, 3, 5, 8], 4))

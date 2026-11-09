@@ -39,5 +39,14 @@ def rle_decode(encoded: str):
     return "".join(output)
 
 
-print(rle_decode("a12b1"))
-print(rle_decode("a3b2c1"))
+# print(rle_decode("a12b1"))
+# print(rle_decode("a3b2c1"))
+
+def compression_ratio(text: str) -> float:
+    if not text:
+        return 0.0
+
+    return len(rle_encode(text)) / len(text)
+
+print(compression_ratio("aaaaaaaaaaaab"))
+print(compression_ratio("abc"))
