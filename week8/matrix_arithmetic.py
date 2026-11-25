@@ -85,19 +85,25 @@ def matrix_times_vector(M: list[list[int]], v: list[int]) -> list[int] | None:
     return result
 
 
+# def matrix_multiplication(matrix_a: list[list[int]], matrix_b: list[list[int]]) -> list[list[int]] | None:
+#     if not matrix_a or not matrix_b or len(matrix_a[0]) != len(matrix_b):
+#         return
+
+#     multiplication = []
+
+#     for i in range(len(matrix_a)):
+#         row = []
+#         for j in range(len(matrix_b[0])):
+#             col = [matrix_b[i][j] for i in range(len(matrix_b))] # get_col(matrix_b, j)
+#             row.append(dot(matrix_a[i], col))
+#         multiplication.append(row)
+
+#     return multiplication
+
 def matrix_multiplication(matrix_a: list[list[int]], matrix_b: list[list[int]]) -> list[list[int]] | None:
-    if not matrix_a or not matrix_b or len(matrix_a[0]) != len(matrix_b):
-        return
+    if not matrix_a or not matrix_b:
+        return None
 
-    multiplication = []
-
-    for i in range(len(matrix_a)):
-        row = []
-        for j in range(len(matrix_b[0])):
-            col = [matrix_b[i][j] for i in range(len(matrix_b))] # get_col(matrix_b, j)
-            row.append(dot(matrix_a[i], col))
-        multiplication.append(row)
-
-    return multiplication
+    
 
 print(matrix_multiplication([[1, 2], [3, 4]], [[5, 6], [7, 8]]))

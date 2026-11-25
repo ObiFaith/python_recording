@@ -30,19 +30,23 @@ def game_status(board: list[list[str]]) -> str:
 
     return "Draw" if board_count == 9 else "In progress"
 
-print(game_status([["X", "X", "X"],
-             ["O", "O", " "],
-             [" ", " ", " "]]))     # "X wins"
+# print(game_status([["X", "X", "X"],
+#              ["O", "O", " "],
+#              [" ", " ", " "]]))     # "X wins"
 
-print(game_status([["O", "X", "X"],
-             ["X", "O", " "],
-             [" ", " ", "O"]]))      # "O wins"  (diagonal)
+# print(game_status([["O", "X", "X"],
+#              ["X", "O", " "],
+#              [" ", " ", "O"]]))      # "O wins"  (diagonal)
 
-print(game_status([["X", "O", "X"],
-             ["O", "X", "O"],
-             ["O", "X", "O"]]))     # "Draw"
+# print(game_status([["X", "O", "X"],
+#              ["O", "X", "O"],
+#              ["O", "X", "O"]]))     # "Draw"
 
-print(game_status([["X", " ", " "],
-             [" ", "O", " "],
-             [" ", " ", " "]]))     # "In progress"
+# print(game_status([["X", " ", " "],
+#              [" ", "O", " "],
+#              [" ", " ", " "]]))     # "In progress"
+
+print(game_status([["O", " ", "X"],
+ [" ", "X", " "],
+ ["X", " ", "O"]]))
 
